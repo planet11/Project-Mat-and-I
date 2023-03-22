@@ -9,8 +9,7 @@ public class Pickup : MonoBehaviour
 
     private void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        GameObject.DontDestroyOnLoad(this.gameObject);
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>(); 
     }
 
     //check if the player collides with the item
