@@ -773,7 +773,7 @@ Transform:
   m_GameObject: {fileID: 1487908703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9745, y: -4.1287, z: 0}
-  m_LocalScale: {x: 12.602707, y: 2.0960636, z: 1}
+  m_LocalScale: {x: 24.417744, y: 2.0960636, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1920024963}
@@ -1264,7 +1264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6814905596272694482, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.38
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 6814905596272694482, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1297,6 +1297,10 @@ PrefabInstance:
     - target: {fileID: 6814905596272694482, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814905596272694483, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6814905596272694484, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
       propertyPath: slots.Array.data[0]
