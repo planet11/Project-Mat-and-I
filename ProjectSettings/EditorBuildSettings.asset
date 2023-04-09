@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Controlroom.unity
     guid: 14a2e8983f10a624e9ab48f7454ecbaa
+  - enabled: 1
+    path: Assets/Scenes/Corridor.unity
+    guid: 0b9136235a1c98548b6ac7a7797e73fb
   m_configObjects: {}

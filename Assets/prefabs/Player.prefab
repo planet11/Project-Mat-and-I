@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6814905594953439260
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6814905594953439263}
-  m_Layer: 0
-  m_Name: Ground Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6814905594953439263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814905594953439260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.156, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6814905596272694482}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6814905596272694495
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +14,6 @@ GameObject:
   - component: {fileID: 6814905596272694481}
   - component: {fileID: 6814905596272694494}
   - component: {fileID: 6814905596272694485}
-  - component: {fileID: 6814905596272694484}
   - component: {fileID: 6814905594479567384}
   m_Layer: 0
   m_Name: Player
@@ -65,8 +33,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6814905594953439263}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb7ad117682fa44fa3eae51bb30074c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontal: 0
   animator: {fileID: 6814905594479567384}
   rb: {fileID: 6814905596272694480}
 --- !u!114 &6814905596272694485
@@ -195,21 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92268b4c14893a043a8214b3f069fc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6814905596272694484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814905596272694495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5059513c548f10941b903312f8f7a140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFull: 00
-  slots:
-  - {fileID: 0}
+  camera: {fileID: 0}
+  focus: {fileID: 0}
 --- !u!95 &6814905594479567384
 Animator:
   serializedVersion: 4
