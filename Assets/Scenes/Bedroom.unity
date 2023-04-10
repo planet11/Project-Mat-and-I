@@ -316,7 +316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -843,7 +843,7 @@ RectTransform:
   - {fileID: 980985154}
   - {fileID: 1716617983}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1036,7 +1036,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.654902, g: 0.654902, b: 0.654902, a: 0.41960785}
   m_FlipX: 0
@@ -1506,6 +1506,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6814905596272694485, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
       propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 6814905596272694485, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}
+      propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 6814905596272694495, guid: c299f9a9f04b96644ba73a370f07fa6a, type: 3}

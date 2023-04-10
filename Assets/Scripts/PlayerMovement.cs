@@ -10,9 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     [SerializeField] private Rigidbody2D rb;
     Transform target;
-    float stoppingDistance = 10f;
 
-    /*private float jumpingPower = 16f;
+    /*float stoppingDistance = 0.5f;
+    private float jumpingPower = 16f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;*/
 
@@ -28,20 +28,18 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
-        Flip();
-
-        if (target != null)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            if(rb.velocity.x > target.position.x)
-            {
-                rb.velocity = new Vector2(target.position.x + stoppingDistance, rb.velocity.y);
-            }
-            else
-            {
-                rb.velocity = new Vector2(target.position.x - stoppingDistance, rb.velocity.y);
-            }
-            
+            Flip();
         }
+   
+
+       /* if (target != null)
+        {
+            Vector2 movePos = new Vector2(target.position.x + stoppingDistance, transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, movePos, speed*Time.);
+            
+        }*/
 
 
         /*if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -56,16 +54,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
-    public void FollowTarget(Interactable newTarget)
+    public void FaceOn(Interactable newTarget)
     {
         target = newTarget.transform;
+        if(isFacingRight && target.position.x < transform.position.x || !isFacingRight && target.position.x > transform.position.x)
+        {
+            Flip();
+        }
     }
 
-    public void StopFollowingTarget()
-    {
-        target = null;
-    }
 
     private void FixedUpdate()
     {
@@ -74,17 +71,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     /*private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }*/
+
+    /*public void FollowTarget(Interactable newTarget)
+    {
+        target = newTarget.transform;
+    }
+
+    public void StopFollowingTarget()
+    {
+        target = null;
     }*/
 }

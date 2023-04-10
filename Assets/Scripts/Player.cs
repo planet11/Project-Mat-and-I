@@ -5,18 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour
 {
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Collision happened!");
-    }*/
-
-    new Camera camera;
     PlayerMovement movement;
+    public Camera mainCamera;
     public Interactable focus;
 
     void Start()
     {
-        camera = Camera.main;
         movement = GetComponent<PlayerMovement>();
     }
 
@@ -24,46 +18,34 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Debug.Log("clicked");
+            RaycastHit2D hit;
+            Vector2 clickedPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            hit = Physics2D.Raycast(clickedPos, Vector2.zero);
 
-            if (Physics.Raycast(ray, out hit))
+            if (hit)
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if(interactable != null)
+                if (interactable != null)
                 {
-                    Debug.Log("hit");
+                    print("hit");
                     SetFocus(interactable);
                 }
+                else
+                {
+                    print("no hit");
+                }
+            }
+            else
+            {
+                print("nothing");
             }
         }
-        if (movement.horizontal != 0)
-        {
-            RemoveFocus();
-        }
-
     }
 
     void SetFocus(Interactable newFocus)
     {
-        if(newFocus != focus || newFocus != null)
-        {
-            focus.OnDefocused();
-        }
         focus = newFocus;
-        newFocus.OnFocused(transform);
-        movement.FollowTarget(newFocus);
-
+        movement.FaceOn(newFocus);
     }
 
-    void RemoveFocus()
-    {
-        if (focus != null)
-        {
-            focus.OnDefocused();
-        }
-        focus = null;
-        movement.StopFollowingTarget();
-    }
 }
