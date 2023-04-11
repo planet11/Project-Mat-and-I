@@ -8,9 +8,10 @@ public class ItemPickUp : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Got " + item.name);
-        Inventory.instance.Add(item);
-        Destroy(gameObject);
+        if (Inventory.instance.Add(item))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

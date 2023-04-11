@@ -19,13 +19,14 @@ public class Inventory : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
     public int space = 1;
 
     public delegate void OnItemChanged();
-    public OnItemChanged OnItemChangedCallback;
+    public OnItemChanged onItemChangedCallback;
 
 
     public bool Add(Item item)
@@ -35,13 +36,13 @@ public class Inventory : MonoBehaviour
             if(items.Count >= space)
             {
                 Debug.Log("FULL");
-                return false;
+                return false; 
             }
 
             items.Add(item);
-            if(OnItemChangedCallback != null)
+            if(onItemChangedCallback != null)
             {
-                OnItemChangedCallback.Invoke();
+                onItemChangedCallback.Invoke();
             }
         }
         return true;
@@ -50,9 +51,9 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
-        if (OnItemChangedCallback != null)
+        if (onItemChangedCallback != null)
         {
-            OnItemChangedCallback.Invoke();
+            onItemChangedCallback.Invoke();
         }
     }
 }
