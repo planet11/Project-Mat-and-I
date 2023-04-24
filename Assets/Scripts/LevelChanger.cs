@@ -7,7 +7,7 @@ public class LevelChanger : MonoBehaviour
 {
     public string sceneToLoad; //to check which scene to load
 
-    public void ChnageScene()
+    public void ChangeScene()
     {
         SceneManager.LoadScene(sceneToLoad);
     }
@@ -16,7 +16,7 @@ public class LevelChanger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            ChnageScene();
+            ChangeScene();
         }
     }
 }
