@@ -11,12 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     Transform target;
 
-    /*float stoppingDistance = 0.5f;
-    private float jumpingPower = 16f;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;*/
-
-
     void Start()
     {
         
@@ -33,24 +27,6 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
    
-
-       /* if (target != null)
-        {
-            Vector2 movePos = new Vector2(target.position.x + stoppingDistance, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, movePos, speed*Time.);
-            
-        }*/
-
-
-        /*if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }*/
 
     }
 
@@ -77,18 +53,4 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    /*private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }*/
-
-    /*public void FollowTarget(Interactable newTarget)
-    {
-        target = newTarget.transform;
-    }
-
-    public void StopFollowingTarget()
-    {
-        target = null;
-    }*/
 }
