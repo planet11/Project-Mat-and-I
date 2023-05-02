@@ -14,6 +14,8 @@ Mat: Now you’ve violated the rule of the trip. I've to lock you down until we 
 
 
 ===Hit===
+~ SetHammer(false)
+~ MatIsHit(true)
 Mat: My mas^%&$t(*)er, the passen&*^*&ger in theeeeee spaceship&*%$ shall not use vi&*_(*olence. I have to loc*&^&$k you...
 Mat is broken down. Then You stop the spaceship and braodcast a S.O.S message to any passing spaceships.
 Luckily, there is a cargo spaceship not so far which has received your message. You're now on the way home.

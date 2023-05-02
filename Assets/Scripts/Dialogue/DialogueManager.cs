@@ -23,6 +23,10 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueIsPlaying { get; private set; }
 
     private DialogueVariables dialogueVariables;
+    private InkExtFunctions inkExtFunctions;
+
+    public GameObject mat;
+    private Animator matAnim; 
 
 
     private void Awake()
@@ -34,6 +38,7 @@ public class DialogueManager : MonoBehaviour
         instance = this;
 
         dialogueVariables = new DialogueVariables(loadGlobalJSON);
+        inkExtFunctions = new InkExtFunctions();
     }
     public static DialogueManager GetInstance()
     {
@@ -52,6 +57,8 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
+        matAnim = mat.GetComponent<Animator>();
     }
 
     private void Update()
@@ -67,7 +74,11 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
         dialogueVariables.StartListening(currentStory);
+
+        inkExtFunctions.Bind(currentStory, matAnim);
+
         ContinueStory();
     }
 
@@ -76,7 +87,10 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
         dialogueVariables.StopListening(currentStory);
+
+        inkExtFunctions.Unbind(currentStory);
     }
 
     public void ContinueStory()

@@ -1,8 +1,12 @@
+EXTERNAL SetScrewdriver(setScrewdriver)
+~ SetScrewdriver(false)
+EXTERNAL SetHammer(setHammer)
+~ SetHammer(false)
+EXTERNAL MatIsHit(matIsHit)
+~ MatIsHit(false)
+
 VAR firstTalk = true
 VAR isSuspected = false
-
-VAR setScrewdriver = false
-VAR setHammer = false
 
 VAR hasScrewdriver = false
 VAR hasHammer = false

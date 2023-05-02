@@ -53,6 +53,6 @@ Oh no! They're selling me to the casino. It's a cheat. Damn how foolish I'm! I g
 Okay. Calm down. Now I've to find a way out, and also stop Mat the cheater! 
 
 Let's grab something to crack him down. (Find something in the bedroom)
-~ setHammer = true
+~ SetHammer(true)
 
 ->DONE

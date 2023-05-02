@@ -14,7 +14,7 @@ Mat: My master, you're the clevest girl I have even seen. I believe you can fix 
 Mat: Just don't forget to take the screwdriver. The circuit breaker is at the corridor.
 You: Okay. I'll go for it.
 ~ firstTalk = false
-~ setScrewdriver = true
+~ SetScrewdriver(true)
 -> DONE
 
 - else: 
