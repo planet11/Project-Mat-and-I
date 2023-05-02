@@ -7,6 +7,18 @@ public class LevelChanger : MonoBehaviour
 {
     public string sceneToLoad; //to check which scene to load
 
+    public static LevelChanger Instance;
+    void Start()
+    {
+        //if (Instance != null)
+        //{
+        //    Destroy(this.gameObject);
+        //    return;
+        //}
+    //    Instance = this;
+    //    GameObject.DontDestroyOnLoad(this.gameObject);
+    }
+
     public void ChangeScene()
     {
         SceneManager.LoadScene(sceneToLoad);
