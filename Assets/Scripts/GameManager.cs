@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     // Start is called before the first frame update
     public bool isHammerPickedUp;
     public bool isInventoryFull;
 
-    public string sceneToLoad; 
 
     public static GameManager instance { get; private set; }
 
@@ -35,24 +34,6 @@ public class GameManager : MonoBehaviour
         isHammerPickedUp = false;
         isInventoryFull = false;
     }
-
-    public void ChangeScene()
-    {
-        SceneManager.LoadScene(sceneToLoad);
-    }
-
-    public void EndGame()
-    {
-        SceneManager.LoadScene("Start");
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && !other.isTrigger)
-        {
-            ChangeScene();
-        }
-    }
-
-
 }
+
+   

@@ -301,7 +301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHammerPickedUp: 0
   isInventoryFull: 0
-  sceneToLoad: 
 --- !u!1 &424052830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,8 +1471,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelDoor
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1378708575080205878, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
+--- !u!1 &6005958854715768742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3086634645327631898, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
+  m_PrefabInstance: {fileID: 6005958854715768741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6005958854715768743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005958854715768742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858007a360fce0149a42b976f50803b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Corridor
 --- !u!1001 &6814905594479567369
 PrefabInstance:
   m_ObjectHideFlags: 0
