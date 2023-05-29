@@ -19,7 +19,8 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventory = Inventory.instance;
-        inventory.onItemChangedCallback += UpdateUI;
+        if(inventory != null)
+            inventory.onItemChangedCallback += UpdateUI;
     }
 
     void Update()

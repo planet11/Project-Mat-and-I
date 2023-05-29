@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
+    public Inventory inventory;
     public Item item;
 
     void OnMouseDown()

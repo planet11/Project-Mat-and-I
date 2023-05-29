@@ -3,7 +3,7 @@ INCLUDE Global.ink
 { !turnOn: Maybe there is something secret in the computer.} 
 ~ turnOn = true
 
-ENTER THE PASSCODE: _ _ _ _ (Hints: Interact with the persol items in the bedroom)
+{ circuitIsFixed: ENTER THE PASSCODE: _ _ _ _ (Hints: Interact with the persol items in the bedroom)}
 
 {photoIsChecked && pillowIsChecked: 
 + [I have the passcode] -> Access
