@@ -12,6 +12,11 @@ public class LevelChanger : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
