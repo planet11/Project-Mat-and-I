@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            animator.SetFloat("Speed", 0f);
+        }
 
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
