@@ -21,4 +21,4 @@ Mat is broken down. Then You stop the spaceship and braodcast a S.O.S message to
 Luckily, there is a cargo spaceship not so far which has received your message. You're now on the way home.
 Yet, not every victims are lucky.
 ~ isEnd = true
--> END
+-> Ending
