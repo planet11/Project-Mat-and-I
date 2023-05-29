@@ -447,8 +447,8 @@ GameObject:
   m_Component:
   - component: {fileID: 633654147}
   - component: {fileID: 633654149}
-  - component: {fileID: 633654148}
   - component: {fileID: 633654150}
+  - component: {fileID: 633654151}
   m_Layer: 0
   m_Name: Screwdriver
   m_TagString: Untagged
@@ -464,27 +464,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633654146}
   m_LocalRotation: {x: -0, y: -0, z: 0.82076675, w: 0.5712635}
-  m_LocalPosition: {x: -0.62, y: -1.74, z: 0}
+  m_LocalPosition: {x: -1.11, y: -0.41, z: 0}
   m_LocalScale: {x: 0.06, y: 0.06, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1920024963}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 110.323}
---- !u!136 &633654148
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633654146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.63
-  m_Height: 33.694115
-  m_Direction: 1
-  m_Center: {x: 9.069425e-10, y: 0.25270462, z: 0}
 --- !u!212 &633654149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -550,6 +536,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+--- !u!58 &633654151
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633654146}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15180103, y: -0.05622293}
+  serializedVersion: 2
+  m_Radius: 36.121937
 --- !u!1 &691855683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,8 +1078,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935218855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.31, z: 0}
-  m_LocalScale: {x: 0.76887894, y: 0.6498242, z: 1}
+  m_LocalPosition: {x: 0, y: 3.28, z: 0}
+  m_LocalScale: {x: 0.98032063, y: 0.7229294, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1920024963}

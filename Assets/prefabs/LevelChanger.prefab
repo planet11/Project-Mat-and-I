@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 813440371000429216}
   - component: {fileID: 2472406517210499317}
-  - component: {fileID: 1378708575080205878}
   m_Layer: 0
   m_Name: LevelChanger
   m_TagString: Untagged
@@ -59,18 +58,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.258489}
   m_EdgeRadius: 0
---- !u!114 &1378708575080205878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3086634645327631898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340734914c6ef8c40a82949639368197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHammerPickedUp: 0
-  isInventoryFull: 0
-  sceneToLoad: 
