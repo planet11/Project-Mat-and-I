@@ -1286,6 +1286,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1378708575080205878, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
+      propertyPath: sceneToLoad
+      value: Controlroom
+      objectReference: {fileID: 0}
     - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_Size.x
       value: 0.40649605
@@ -2063,6 +2067,10 @@ PrefabInstance:
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378708575080205878, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
+      propertyPath: sceneToLoad
+      value: Bedroom
       objectReference: {fileID: 0}
     - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_Size.x

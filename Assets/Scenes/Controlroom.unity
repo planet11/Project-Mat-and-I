@@ -549,6 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8a07cc9735dd041a60aedb6505ef61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &691855683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,10 +1147,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 171426875177462131, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
-      propertyPath: sceneToLoad
-      value: Corridor
-      objectReference: {fileID: 0}
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1194,21 +1191,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
-      propertyPath: m_Size.x
-      value: 0.40649605
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
-      propertyPath: m_Size.y
-      value: 10.024767
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.29675198
-      objectReference: {fileID: 0}
-    - target: {fileID: 2472406517210499317, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
-      propertyPath: m_Offset.y
-      value: 3.426219
+    - target: {fileID: 1378708575080205878, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
+      propertyPath: sceneToLoad
+      value: Corridor
       objectReference: {fileID: 0}
     - target: {fileID: 3086634645327631898, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_Name

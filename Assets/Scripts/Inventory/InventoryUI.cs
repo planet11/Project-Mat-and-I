@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    Inventory inventory;
+    InventoryManager inventory;
     public Image icon;
     Item item;
 
@@ -20,7 +20,7 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        inventory = Inventory.instance;
+        inventory = InventoryManager.instance;
         if(inventory != null)
           inventory.onItemChangedCallback += UpdateUI;
 
