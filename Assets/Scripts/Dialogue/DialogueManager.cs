@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StopListening(currentStory);
 
-        inkExtFunctions.Unbind(currentStory);
+        //inkExtFunctions.Unbind(currentStory);
     }
 
     public void ContinueStory()

@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    InventoryManager inventory;
     public Item item;
     bool isCollectable = false;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
     {
-        isCollectable = true;
+        inventory = InventoryManager.instance;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        isCollectable = false;
+        if (collider.CompareTag("Player"))
+            isCollectable = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player"))
+            isCollectable = false;
     }
 
     void OnMouseDown()
     {
-        if (isCollectable && InventoryManager.instance.Add(item))
+        if (isCollectable)
         {
-            gameObject.SetActive(false);
-            GameManager.instance.isHammerPickedUp = true;
+            inventory.Add(item);
+            Destroy(gameObject);
         }
     }
 

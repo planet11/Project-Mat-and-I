@@ -5,65 +5,72 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     #region Singleton
-    /*public bool[] isFull;
-    public GameObject[] slots;*/
-
     public static InventoryManager instance { get; private set; }
-    public List<Item> items = new List<Item>();
 
-    //public GameObject hammer;
-    //public bool isHammerPickedUp;
-
-    InventoryUI ui;
-
-    void Awake()
+    private void Awake()
     {
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
-        {
             Destroy(this);
-        }
-        
     }
     #endregion
-   
     
-
+    // limit space of inventory
+    public List<Item> items = new List<Item>();
     public int space = 1;
 
+    // create event when inventory item changes
     public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
+    public OnItemChanged itemChanged;
 
-
-    public bool Add(Item item)
+    private void Start()
     {
-        if (!item.isDefaultItem)
-        {
-            if(items.Count >= space)
-            {
-                Debug.Log("FULL");
-                return false; 
-            }
+        LoadState();
+    }
 
-            items.Add(item);
-            if(onItemChangedCallback != null)
-            {
-                onItemChangedCallback.Invoke();
-            }
+    public void Add(Item item)
+    {
+        if(items.Count > space)
+        {
+            Debug.Log("Inventory is FULL");
+            return; 
         }
-        return true;
+
+        items.Add(item);
+        itemChanged?.Invoke();
+        SaveState(item);
+        Debug.Log(item.name + " added to inventory");
+
     }
 
     public void Remove(Item item)
     {
         items.Remove(item);
-        if (onItemChangedCallback != null)
+        if (itemChanged != null)
         {
-            onItemChangedCallback.Invoke();
+            itemChanged.Invoke();
+            SaveState(item, false);
         }
+    }
+
+    void SaveState(Item item, bool isAdded = true)
+    {
+        if (isAdded)
+            GameManager.AddInventoryItem(item);
+        else
+            GameManager.RemoveInventoryItem(item);
+    }
+
+    public void LoadState()
+    {
+        List<Item> heldItems = new List<Item>(GameManager.currentInventoryItems);
+        items.Clear();
+
+        foreach (Item heldItem in heldItems.ToArray())
+            Add(heldItem);
+            ///Add(Resources.Load<Item>($"Inventory Items/{name}"));
     }
 }
