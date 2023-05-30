@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public bool isHammerPickedUp;
     public bool isInventoryFull;
+    public Sprite inventoryIcon;
+    //LevelChanger lvl = new LevelChanger;
 
 
     public static GameManager instance { get; private set; }
@@ -33,7 +35,20 @@ public class GameManager : MonoBehaviour
     {
         isHammerPickedUp = false;
         isInventoryFull = false;
+        inventoryIcon = null;
+
     }
+    private void Update()
+    {
+        if (inventoryIcon == null)
+            Debug.Log("its null");
+
+        else
+            Debug.Log("its not null");
+
+
+    }
+
 }
 
    
