@@ -55,14 +55,28 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItem(Item newItem)
     {
-        if (!GameManager.instance.isInventoryFull)
+        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
         {
             item = newItem;
-            //print(item);
             icon.sprite = item.icon;
             icon.enabled = true;
+            GameManager.instance.inventoryIcon = item.icon;
+  
         }
        
+    }
+
+    public void AddItemPersist(Item newItem)
+    {
+        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
+        {
+            item = newItem;
+            icon.sprite = item.icon;
+            icon.enabled = true;
+            GameManager.instance.inventoryIcon = item.icon;
+
+        }
+
     }
 
     public void ClearItem()
@@ -70,10 +84,13 @@ public class InventoryUI : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
+        GameManager.instance.inventoryIcon = null;
     }
 
     private void OnDestroy()
     {
         Debug.Log("UI was destroyed");
     }
+
+    
 }

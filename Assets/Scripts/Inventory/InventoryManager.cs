@@ -38,23 +38,6 @@ public class InventoryManager : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
-    /*
-    public void saveUI()
-    {
-        if (GameManager.instance.isInventoryFull)
-        {
-            ui.UpdateUI();
-            Debug.Log("this code ran");
-        }
-    }
-
-    private void Start()
-    {
-        saveUI();
-        Debug.Log("this code ran2");
-
-    }
-    */
 
     public bool Add(Item item)
     {
