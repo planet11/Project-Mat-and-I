@@ -6,77 +6,39 @@ public class InventoryUI : MonoBehaviour
     InventoryManager inventory;
     public Image icon;
     Item item;
-
-    //public bool isInventoryFull;
     
     void Awake()
     {
         if(!item)
-        {
             icon.enabled = false;
-        }
-     
     }
 
     void Start()
     {
         inventory = InventoryManager.instance;
         if(inventory != null)
-          inventory.onItemChangedCallback += UpdateUI;
-
-        Debug.Log("hammer pick up:" + GameManager.instance.isHammerPickedUp);
-        //isIventoryFull = GameManager.instance.isHammerPickedUp;
-
-        
+          inventory.itemChanged += UpdateUI;
     }
 
-    void Update()
+    void OnDisable()
     {
-        if (!GameManager.instance.isHammerPickedUp)
-        {
-            GameManager.instance.isInventoryFull = false;
-        }
-        else
-        {
-            GameManager.instance.isInventoryFull = true;
-        }
+        InventoryManager.instance.itemChanged -= UpdateUI;
     }
 
     public void UpdateUI()
     {
-        for (int i=0; i<inventory.items.Count; i++)
-        {
-            AddItem(inventory.items[i]);
-            GameManager.instance.isInventoryFull = true;
-            Debug.Log("isInventoryFull set true from InventoryUI UpdateUI");
-        }
-
+        for (int i = 0; i < inventory.items.Count; i++)
+            if (i < inventory.items.Count)
+                AddItem(inventory.items[i]);
+            else
+                ClearItem();
     }
 
     public void AddItem(Item newItem)
     {
-        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
-        {
-            item = newItem;
-            icon.sprite = item.icon;
-            icon.enabled = true;
-            GameManager.instance.inventoryIcon = item.icon;
-  
-        }
-       
-    }
-
-    public void AddItemPersist(Item newItem)
-    {
-        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
-        {
-            item = newItem;
-            icon.sprite = item.icon;
-            icon.enabled = true;
-            GameManager.instance.inventoryIcon = item.icon;
-
-        }
-
+        item = newItem;
+        icon.sprite = item.icon;
+        icon.enabled = true;
     }
 
     public void ClearItem()
@@ -84,13 +46,16 @@ public class InventoryUI : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
-        GameManager.instance.inventoryIcon = null;
     }
 
-    private void OnDestroy()
+ /*   public void AddItemPersist(Item newItem)
     {
-        Debug.Log("UI was destroyed");
-    }
+        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
+        {
+            item = newItem;
+            icon.sprite = item.icon;
+            icon.enabled = true;
+        }
 
-    
+    }*/
 }

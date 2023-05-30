@@ -26,18 +26,7 @@ public class Player : MonoBehaviour
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
-                {
-                    print("hit");
                     SetFocus(interactable);
-                }
-                else
-                {
-                    print("no hit");
-                }
-            }
-            else
-            {
-                print("nothing");
             }
         }
     }

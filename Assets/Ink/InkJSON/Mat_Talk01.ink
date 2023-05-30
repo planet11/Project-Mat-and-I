@@ -12,9 +12,10 @@ Mat: Yes, my master. Besides, it is reported that the voltage of the spaceship i
 You: But I don't know how to do.
 Mat: My master, you're the cleverest girl I have even seen. I believe you can fix the problem.
 Mat: Just don't forget to take the screwdriver. The circuit breaker is at the corridor.
-You: Okay. I'll go for it.->DONE
+You: Okay. I'll go for it.
 ~ firstTalk = false
 ~ SetScrewdriver(true)
+->DONE
 
 - else: 
 { circuitIsFixed: -> isFixed | Mat: My master, what can I help you?}
