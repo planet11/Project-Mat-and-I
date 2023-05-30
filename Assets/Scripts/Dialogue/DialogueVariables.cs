@@ -17,7 +17,7 @@ public class DialogueVariables
         {
             Ink.Runtime.Object value = globalVariablesStory.variablesState.GetVariableWithName(name);
             variables.Add(name, value);
-            Debug.Log("Intializing " + name + " = " + value);
+            //Debug.Log("Intializing " + name + " = " + value);
         }
     }
 
@@ -39,7 +39,7 @@ public class DialogueVariables
         ///only maintain variables initialized from the global ink file
         if (variables.ContainsKey(name))
         {
-            variables[name] = value;
+            variables[name] = value; 
             //variables.Remove(name);
             //variables.Add(name, value);
         }

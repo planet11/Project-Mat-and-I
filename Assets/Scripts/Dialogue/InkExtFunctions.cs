@@ -12,10 +12,10 @@ public class InkExtFunctions
         story.BindExternalFunction("MatIsHit", (bool matIsHit) => MatIsHit(matIsHit,anim));
     }
 
-    public void Unbind(Story story)
-    {
-        story.UnbindExternalFunction("CircuitIsFixed");
-    }
+    //public void Unbind(Story story)
+    //{
+    //    story.UnbindExternalFunction("CircuitIsFixed");
+    //}
 
     public void SetScrewdriver(bool setScrewdriver)
     {

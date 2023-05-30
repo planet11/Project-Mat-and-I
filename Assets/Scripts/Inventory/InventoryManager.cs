@@ -41,8 +41,8 @@ public class InventoryManager : MonoBehaviour
 
     public bool Add(Item item)
     {
-        if (!item.isDefaultItem)
-        {
+        //if (!item.isDefaultItem)
+        //{
             if(items.Count >= space)
             {
                 Debug.Log("FULL");
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
             {
                 onItemChangedCallback.Invoke();
             }
-        }
+        //}
         return true;
     }
 

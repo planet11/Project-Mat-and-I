@@ -12,16 +12,11 @@ public class PlayerMovement : MonoBehaviour
     Transform target;
 
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (!DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
+            horizontal = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
         }
         else
