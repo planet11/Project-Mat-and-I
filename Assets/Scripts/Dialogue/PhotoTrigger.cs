@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class PhotoTrigger : MonoBehaviour
 {
     private bool playerInRange;
     Camera cam;
@@ -19,20 +19,6 @@ public class DialogueTrigger : MonoBehaviour
         cam = Camera.main;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-            playerInRange = true;
-    }
-
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
-            playerInRange = false;
-
-    }
-
     private void Update()
     {
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
@@ -44,12 +30,29 @@ public class DialogueTrigger : MonoBehaviour
             {
                 RaycastHit2D hit;
                 hit = Physics2D.Raycast(mousePos, Vector2.down);
-                if (hit.collider.CompareTag("Interactable"))
+                if (hit.collider.name == "Photo")
                 {
-                    TextAsset currentDialogue = hit.collider.GetComponent<DialogueTrigger>().inkJSON;
-                    DialogueManager.GetInstance().EnterDialogueMode(currentDialogue);
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 }
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            playerInRange = true;
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            playerInRange = false;
+        }
+
     }
 }

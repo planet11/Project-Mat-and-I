@@ -25,8 +25,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueVariables dialogueVariables;
     private InkExtFunctions inkExtFunctions;
 
-    public GameObject mat;
-    private Animator matAnim; 
+    [SerializeField] private Animator matAnim; 
 
 
     private void Awake()
@@ -51,14 +50,9 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
 
         choicesText = new TextMeshProUGUI[choices.Length];
-        int index = 0;
-        foreach(GameObject choice in choices)
-        {
-            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
-            index++;
-        }
-
-        matAnim = mat.GetComponent<Animator>();
+        for (int index = 0; index < choices.Length; index++)
+        //foreach(GameObject choice in choices)
+            choicesText[index] = choices[index].GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -100,42 +94,45 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = currentStory.Continue();
             DisplayChoices();
         }
-        else
+        else if (!currentStory.canContinue)
         {
             ExitDialogueMode();
+        }
+        else
+        {
+            return;
         }
     }
 
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
-        if(currentChoices.Count > choices.Length)
-        {
-            Debug.Log("more choices were given than the UI can support");
-        }
 
-        int index = 0;
-        foreach(Choice choice in currentChoices)
+        for (int index = 0; index < choices.Length; index++)
+        //foreach(Choice choice in currentChoices)
         {
-            choices[index].gameObject.SetActive(true);
-            choicesText[index].text = choice.text;
-            index++;
+            if (index < currentChoices.Count)
+            {
+                choices[index].gameObject.SetActive(true);
+                choicesText[index].text = currentChoices[index].text;
+            }
+            else
+            {
+                choices[index].gameObject.SetActive(false);
+                choicesText[index].text = "";
+            }
         }
-        for(int i = index; i < choices.Length; i++)
-        {
-            choices[i].gameObject.SetActive(false);
-        }
-        StartCoroutine(SelectedFirstChoice());
+        //StartCoroutine(SelectedFirstChoice());
     }
 
-    private IEnumerator SelectedFirstChoice()
-    {
-        //Event System requires we clean it first,
-        //then wait for at least one frame before we set the current selected obj
-        EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
-    }
+    //private IEnumerator SelectedFirstChoice()
+    //{
+        ///Event System requires we clean it first,
+        ///then wait for at least one frame before we set the current selected obj
+        //EventSystem.current.SetSelectedGameObject(null);
+        //yield return new WaitForEndOfFrame();
+        //EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    //}
 
     public void MakeChoice(int choiceIndex)
     {

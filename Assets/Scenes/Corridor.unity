@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 80703455}
   m_Layer: 0
   m_Name: Computer
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,6 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7e3403f36d6834b880ceed71c32fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   inkJSON: {fileID: 4900000, guid: dca746954b69d9347899573bf434e021, type: 3}
 --- !u!1 &106563813 stripped
 GameObject:
@@ -991,7 +994,7 @@ GameObject:
   - component: {fileID: 877844801}
   m_Layer: 0
   m_Name: Trope
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1113,6 +1116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7e3403f36d6834b880ceed71c32fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   inkJSON: {fileID: 4900000, guid: cd198f82afe28bb4887c6824d67fcac9, type: 3}
 --- !u!1 &978779144
 GameObject:
@@ -1856,7 +1862,7 @@ GameObject:
   - component: {fileID: 1538982211}
   m_Layer: 0
   m_Name: Circuit
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1978,6 +1984,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7e3403f36d6834b880ceed71c32fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   inkJSON: {fileID: 4900000, guid: 4760a495cb66d5743a25d63094a79042, type: 3}
 --- !u!1 &1612234330 stripped
 GameObject:

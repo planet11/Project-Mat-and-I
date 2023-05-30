@@ -8,10 +8,10 @@ public class DialogueVariables
 
     public DialogueVariables(TextAsset loadGlobalJSON)
     {
-        //create the story
+        ///create the story
         Story globalVariablesStory = new Story(loadGlobalJSON.text);
 
-        //initialize the dictionary of variables
+        ///initialize the dictionary of variables
         variables = new Dictionary<string, Ink.Runtime.Object>();
         foreach (string name in globalVariablesStory.variablesState)
         {
@@ -23,7 +23,7 @@ public class DialogueVariables
 
     public void StartListening(Story story)
     {
-        //set the varibles global should be done before the listener
+        ///set the varibles global should be done before the listener
         VariablesToStory(story);
         story.variablesState.variableChangedEvent += VariableChanged;
     }
@@ -35,12 +35,13 @@ public class DialogueVariables
 
    private void VariableChanged(string name, Ink.Runtime.Object value)
     {
-        Debug.Log("Variable changed: " + name + " = " + value);
-        //only maintain variables initialized from the global ink file
+        //Debug.Log("Variable changed: " + name + " = " + value);
+        ///only maintain variables initialized from the global ink file
         if (variables.ContainsKey(name))
         {
-            variables.Remove(name);
-            variables.Add(name, value);
+            variables[name] = value;
+            //variables.Remove(name);
+            //variables.Add(name, value);
         }
     }
 

@@ -29,13 +29,11 @@ public class InkExtFunctions
 
     public void MatIsHit(bool matIsHit, Animator anim)
     {
-        Debug.Log(anim);
         if (matIsHit && anim != null)
         {
             Debug.Log("Mat is hit.");
             anim.enabled = false;
         }
-        
     }
 
 }
