@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
-            if (rb.velocity != Vector2.zero )
+            if (rb.velocity == Vector2.zero )
             {
                 walkSound.Play();
             }

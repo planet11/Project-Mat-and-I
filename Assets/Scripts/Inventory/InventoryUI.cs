@@ -7,8 +7,8 @@ public class InventoryUI : MonoBehaviour
     public Image icon;
     Item item;
 
-    [SerializeField] private AudioSource collectSound; // collect audio
-    bool isInventoryFull = false;
+    //[SerializeField] private AudioSource collectSound; // collect audio
+   // bool isInventoryFull = false;
 
     void Awake()
     {
@@ -24,7 +24,7 @@ public class InventoryUI : MonoBehaviour
         if (inventory != null)
         {
             inventory.itemChanged += UpdateUI;
-            collectSound.Pause();
+            //collectSound.Pause();
         }
             
     }
@@ -49,12 +49,10 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItem(Item newItem)
     {
-        if(inventory == null)
-        {
-            item = newItem;
-            icon.sprite = item.icon;
-            icon.enabled = true;
-        }
+        
+        item = newItem;
+        icon.sprite = item.icon;
+        icon.enabled = true;
        
 
     }

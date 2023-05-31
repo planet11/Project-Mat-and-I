@@ -8,11 +8,12 @@ public class ItemPickup : MonoBehaviour
     public Item item;
     bool isCollectable = false;
 
-    //[SerializeField] private AudioSource collectSound; // collect audio
+    [SerializeField] private AudioSource collectSound; // collect audio
 
     private void Start()
     {
         inventory = InventoryManager.instance;
+        collectSound.Pause();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -31,9 +32,12 @@ public class ItemPickup : MonoBehaviour
     {
         if (isCollectable)
         {
+            collectSound.Play(); // play audio
+
             inventory.Add(item);
             Destroy(gameObject);
-            //
+            
+            Debug.Log("Collect sound played!!");
         }
     }
 
