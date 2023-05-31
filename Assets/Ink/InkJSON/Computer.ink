@@ -1,15 +1,17 @@
-INCLUDE Global.ink
+//INCLUDE Global.ink
+
+VAR turnOn = false
+
+VAR isSuspected = false
 
 { !turnOn: Maybe there is something secret in the computer.} 
 ~ turnOn = true
 
-{ circuitIsFixed: ENTER THE PASSCODE: _ _ _ _ (Hints: Interact with the persol items in the bedroom)}
-
-{photoIsChecked && pillowIsChecked: 
-+ [I have the passcode] -> Access
--else:
--> DONE
+{ 
+- isSuspected: ENTER THE PASSCODE: _ _ _ _ (Hints: Interact with the persol items in the bedroom) -> Access
+- else: -> DONE
 }
+
 
 ===Access===
 Passcode: _ _ _ _
@@ -53,6 +55,6 @@ Oh no! They're selling me to the casino. It's a cheat. Damn how foolish I'm! I g
 Okay. Calm down. Now I've to find a way out, and also stop Mat the cheater! 
 
 Let's grab something to crack him down. (Find something in the bedroom)
-~ SetHammer(true)
+~ setHammer = true
 
 ->DONE

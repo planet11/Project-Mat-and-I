@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 5910695984917681570}
   - component: {fileID: 5910695984917681575}
   - component: {fileID: 5910695984917681574}
-  - component: {fileID: 5910695984917681573}
   - component: {fileID: 5910695984917681572}
-  - component: {fileID: 5910695984917681595}
+  - component: {fileID: 5987325643894445239}
   m_Layer: 0
   m_Name: Mat
   m_TagString: Untagged
@@ -30,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5910695984917681571}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2215495, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba084fccf6c5906409334249a231f878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5910695984917681573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5910695984917681571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7e3403f36d6834b880ceed71c32fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 49997847b9837ae4cb51b18482902cbc, type: 3}
 --- !u!50 &5910695984917681572
 Rigidbody2D:
   serializedVersion: 4
@@ -172,19 +158,19 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5910695984917681595
-CapsuleCollider2D:
+--- !u!114 &5987325643894445239
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5910695984917681571}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000793669, y: -0.041269597}
-  m_Size: {x: 2.354763, y: 3.967463}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acddf2f45022bf84086f8d900db198f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkAsset: {fileID: 4900000, guid: 49997847b9837ae4cb51b18482902cbc, type: 3}
+  firstTalk: 0
+  setScrewdriver: 0
+  circuitIsFixed: 0

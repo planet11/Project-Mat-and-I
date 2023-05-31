@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3072323892589297285}
   - component: {fileID: 3072323892589297284}
+  - component: {fileID: 424356316166369773}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -39,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3072323892589297286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6dda575febabc545ba6e4d5ab7f2932, type: 3}
   m_Name: 
@@ -54,3 +55,22 @@ MonoBehaviour:
   hammerCollider: {fileID: 3223494154661866897, guid: c524b1127638a124a86b6fa9efbb4f66, type: 3}
   hammer: {fileID: 3223494154661866896, guid: c524b1127638a124a86b6fa9efbb4f66, type: 3}
   matAnim: {fileID: 5910695984917681570, guid: 50b486014f5eb0345932f20698e1f2b6, type: 3}
+--- !u!114 &424356316166369773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072323892589297286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c57b2437b85cb94493c20ae08db30ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvasPrefab: {fileID: -936335216425099941, guid: 8b941d9edfcb58047ac86acd6e8142e0, type: 3}
+  choicesButtonPrefab: {fileID: 2321116634232270042, guid: d5d678c36b50fbb438b6ac70b2f154fb, type: 3}
+  dialogueCanvas: {fileID: 0}
+  dialogueText: {fileID: 0}
+  choicesButtons: {fileID: 0}
+  dialogueObj: {fileID: 0}
+  dialogueIsPlaying: 0

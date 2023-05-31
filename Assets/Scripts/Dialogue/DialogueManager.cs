@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Load Global JSON")]
     [SerializeField] private TextAsset loadGlobalJSON;
 
-    private static DialogueManager instance;
+    public static DialogueManager instance;
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 

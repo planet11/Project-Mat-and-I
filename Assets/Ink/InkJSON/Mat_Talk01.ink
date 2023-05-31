@@ -1,6 +1,16 @@
-INCLUDE Global.ink
+//INCLUDE Global.ink
 INCLUDE Mat_Talk02.ink
 INCLUDE Mat_Talk03.ink
+INCLUDE CircuitBreaker.ink
+INCLUDE Computer.ink
+
+VAR firstTalk = true
+
+VAR isEnd = false
+
+VAR setHammer = false
+VAR hasHammer= false
+VAR matIsHit = false
 
 { firstTalk:
 
@@ -14,7 +24,7 @@ Mat: My master, you're the cleverest girl I have even seen. I believe you can fi
 Mat: Just don't forget to take the screwdriver. The circuit breaker is at the corridor.
 You: Okay. I'll go for it.
 ~ firstTalk = false
-~ SetScrewdriver(true)
+~ setScrewdriver = true
 ->DONE
 
 - else: 

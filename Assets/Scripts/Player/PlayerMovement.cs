@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!DialogueManager.GetInstance().dialogueIsPlaying)
+        if (!InkDialogueManager.instance.dialogueIsPlaying)
         {
             horizontal = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
@@ -26,27 +26,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
             Flip();
-        }
     }
 
     public void FaceOn(Interactable newTarget)
     {
         target = newTarget.transform;
         if (isFacingRight && target.position.x < transform.position.x || !isFacingRight && target.position.x > transform.position.x)
-        {
             Flip();
-        }
     }
 
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
-        {
+        if (InkDialogueManager.instance.dialogueIsPlaying)
             return;
-        }
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
