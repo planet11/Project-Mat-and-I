@@ -25,7 +25,10 @@ public class DialogueManager : MonoBehaviour
     private DialogueVariables dialogueVariables;
     private InkExtFunctions inkExtFunctions;
 
-    [SerializeField] private Animator matAnim; 
+    public Collider2D screwdriverCollider;
+    public Collider2D hammerCollider;
+    public ItemPickup hammer;
+    public Animator matAnim; 
 
 
     private void Awake()
@@ -35,6 +38,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Found more than one Dialogue Manager in the scene");
         }
         instance = this;
+        DontDestroyOnLoad(instance);
 
         dialogueVariables = new DialogueVariables(loadGlobalJSON);
         inkExtFunctions = new InkExtFunctions();
@@ -44,8 +48,12 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
-    private void Start()
+    void Start()
     {
+        screwdriverCollider.enabled = false;
+        hammerCollider.enabled = false;
+        hammer.enabled = false;
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -55,12 +63,20 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choices[index].GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void Update()
+    void Update()
     {
         if (!dialogueIsPlaying)
-        {
             return;
-        }
+
+        if (inkExtFunctions.screwdriverIsSet)
+            screwdriverCollider.enabled = true;
+
+        if (inkExtFunctions.hammerIsSet)
+            hammerCollider.enabled = true;
+
+        if (inkExtFunctions.matIsHit)
+            matAnim.enabled = false;
+
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
@@ -71,7 +87,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StartListening(currentStory);
 
-        inkExtFunctions.Bind(currentStory, matAnim);
+        inkExtFunctions.Bind(currentStory);
 
         ContinueStory();
     }

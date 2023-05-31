@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ad332fa91745a4696ec06c58cf9c9a, type: 3}
   m_Name: GlassBreaker
   m_EditorClassIdentifier: 
-  name: GlassBreaker
+  name: Hammer
   icon: {fileID: 21300000, guid: 29dd7bae91cb75b41bb0ca24ab802bb3, type: 3}
-  isDefaultItem: 0

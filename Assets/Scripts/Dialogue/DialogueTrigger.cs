@@ -21,33 +21,29 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player")
-            playerInRange = true;
+        playerInRange = true;
     }
 
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player")
-            playerInRange = false;
-
+        playerInRange = false;
     }
 
     private void Update()
     {
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            Vector2 mousePos = Input.mousePosition;
-            mousePos = cam.ScreenToWorldPoint(mousePos);
-
             if (Input.GetMouseButtonDown(0))
             {
+                Vector2 mousePos = Input.mousePosition;
+                mousePos = cam.ScreenToWorldPoint(mousePos);
+
                 RaycastHit2D hit;
                 hit = Physics2D.Raycast(mousePos, Vector2.down);
-                if (hit.collider.CompareTag("Interactable"))
+                if (hit.collider.name == name)
                 {
-                    TextAsset currentDialogue = hit.collider.GetComponent<DialogueTrigger>().inkJSON;
-                    DialogueManager.GetInstance().EnterDialogueMode(currentDialogue);
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 }
             }
         }

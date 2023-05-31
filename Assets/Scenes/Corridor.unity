@@ -226,7 +226,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 79234a9412887e54b805a24055ab5590, type: 3}
-  m_Color: {r: 0.8202797, g: 0.9245283, b: 0.44045925, a: 1}
+  m_Color: {r: 0.03769135, g: 0.7264151, b: 0.44665128, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -264,11 +264,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   inkJSON: {fileID: 4900000, guid: dca746954b69d9347899573bf434e021, type: 3}
---- !u!1 &106563813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6449692758876781707, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
-  m_PrefabInstance: {fileID: 427050483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &128396544
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7031258429054341889, guid: a13dc16901e687a45be70a899847be7f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7031258429054341889, guid: a13dc16901e687a45be70a899847be7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -586,10 +581,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialoguePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4704379962733352905, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4704379963092758749, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1239769053}
+      objectReference: {fileID: 0}
     - target: {fileID: 4704379963092758749, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ContinueStory
@@ -625,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 7710432598698335954, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1239769053}
+      objectReference: {fileID: 0}
     - target: {fileID: 7710432598698335954, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MakeChoice
@@ -637,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 8321682851899372969, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1239769053}
+      objectReference: {fileID: 0}
     - target: {fileID: 8321682851899372969, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MakeChoice
@@ -892,11 +891,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &801692398 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3597069786659599122, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
-  m_PrefabInstance: {fileID: 427050483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839031330
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239769053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
@@ -1031,11 +1025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839031330}
   m_CullTransparentMesh: 1
---- !u!1 &842544529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4704379962733352905, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
-  m_PrefabInstance: {fileID: 427050483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &877844796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1087,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 98509ce5a3a51f84ba5ed443b89dedcb, type: 3}
-  m_Color: {r: 0.46366438, g: 0.7735849, b: 0.44152722, a: 1}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -1325,7 +1314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1496,59 +1485,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1239769052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1239769054}
-  - component: {fileID: 1239769053}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1239769053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239769052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6dda575febabc545ba6e4d5ab7f2932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 842544529}
-  dialogueText: {fileID: 2123591113}
-  choices:
-  - {fileID: 801692398}
-  - {fileID: 106563813}
-  - {fileID: 1448426613}
-  - {fileID: 839031330}
-  loadGlobalJSON: {fileID: 4900000, guid: 22bd7864f68c20c49ac622b6f8e0c43a, type: 3}
-  matAnim: {fileID: 0}
---- !u!4 &1239769054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239769052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8531675, y: 2.795014, z: -0.089618154}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1444154368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1743,7 +1679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239769053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
@@ -2105,17 +2041,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2123591113 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4704379963433593731, guid: 7a29854d465cfd9458bcae5d95f4e300, type: 3}
-  m_PrefabInstance: {fileID: 427050483}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6005958854715768741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2129,7 +2054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 813440371000429216, guid: 016aa9ffe918dd846a167aa0464bf2a0, type: 3}
       propertyPath: m_LocalPosition.x
