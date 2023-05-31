@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public Camera mainCamera;
     public Interactable focus;
 
+    //[SerializeField] private AudioSource collectSound; // collect audio
+
+
     void Start()
     {
         movement = GetComponent<PlayerMovement>();
@@ -26,7 +29,11 @@ public class Player : MonoBehaviour
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
+                {
                     SetFocus(interactable);
+                    //collectSound.Play(); // play sound
+                }
+                    
             }
         }
     }

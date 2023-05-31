@@ -6,18 +6,27 @@ public class InventoryUI : MonoBehaviour
     InventoryManager inventory;
     public Image icon;
     Item item;
-    
+
+    [SerializeField] private AudioSource collectSound; // collect audio
+    bool isInventoryFull = false;
+
     void Awake()
     {
-        if(!item)
+        if (!item)
             icon.enabled = false;
     }
 
     void Start()
     {
+        //bool isInventoryFull = false;
+        
         inventory = InventoryManager.instance;
-        if(inventory != null)
-          inventory.itemChanged += UpdateUI;
+        if (inventory != null)
+        {
+            inventory.itemChanged += UpdateUI;
+            collectSound.Pause();
+        }
+            
     }
 
     void OnDisable()
@@ -29,16 +38,25 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < inventory.items.Count; i++)
             if (i < inventory.items.Count)
+            {
                 AddItem(inventory.items[i]);
+                //collectSound.Play();//audio 
+            }
+                  
             else
                 ClearItem();
     }
 
     public void AddItem(Item newItem)
     {
-        item = newItem;
-        icon.sprite = item.icon;
-        icon.enabled = true;
+        if(inventory == null)
+        {
+            item = newItem;
+            icon.sprite = item.icon;
+            icon.enabled = true;
+        }
+       
+
     }
 
     public void ClearItem()
@@ -47,15 +65,4 @@ public class InventoryUI : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
     }
-
- /*   public void AddItemPersist(Item newItem)
-    {
-        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
-        {
-            item = newItem;
-            icon.sprite = item.icon;
-            icon.enabled = true;
-        }
-
-    }*/
 }

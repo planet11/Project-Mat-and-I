@@ -8,6 +8,8 @@ public class ItemPickup : MonoBehaviour
     public Item item;
     bool isCollectable = false;
 
+    //[SerializeField] private AudioSource collectSound; // collect audio
+
     private void Start()
     {
         inventory = InventoryManager.instance;
@@ -31,6 +33,7 @@ public class ItemPickup : MonoBehaviour
         {
             inventory.Add(item);
             Destroy(gameObject);
+            //
         }
     }
 

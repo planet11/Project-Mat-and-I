@@ -7,6 +7,9 @@ public class InventoryManager : MonoBehaviour
     #region Singleton
     public static InventoryManager instance { get; private set; }
 
+    //[SerializeField] private AudioSource collectSound; // collect audio
+
+
     private void Awake()
     {
         if(instance == null)
@@ -33,11 +36,12 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        if(items.Count > space)
+        if(items.Count > space)//if the number of items is greater than 1
         {
             Debug.Log("Inventory is FULL");
             return; 
         }
+        //collectSound.Play();//audio
 
         items.Add(item);
         itemChanged?.Invoke();
@@ -56,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void SaveState(Item item, bool isAdded = true)
+    void SaveState(Item item, bool isAdded = true)//save item in the inventory
     {
         if (isAdded)
             GameManager.AddInventoryItem(item);

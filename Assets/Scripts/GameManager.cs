@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(this);
+
     }
 
     public static void SetCurrentInventoryItems(List<Item> items)
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
             items.Add(item);
         }
 
-        // Include new items added to inventory
+        // add new items added to inventory
         foreach (Item newItem in items)
         {
             if (!currentInventoryItems.Contains(newItem))
