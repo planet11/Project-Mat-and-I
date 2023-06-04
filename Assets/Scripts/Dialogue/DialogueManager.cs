@@ -25,8 +25,6 @@ public class DialogueManager : MonoBehaviour
     private DialogueVariables dialogueVariables;
     private InkExtFunctions inkExtFunctions;
 
-    [SerializeField] private Animator matAnim; 
-
 
     private void Awake()
     {
@@ -51,7 +49,6 @@ public class DialogueManager : MonoBehaviour
 
         choicesText = new TextMeshProUGUI[choices.Length];
         for (int index = 0; index < choices.Length; index++)
-        //foreach(GameObject choice in choices)
             choicesText[index] = choices[index].GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -71,7 +68,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StartListening(currentStory);
 
-        inkExtFunctions.Bind(currentStory, matAnim);
+        inkExtFunctions.Bind(currentStory);
 
         ContinueStory();
     }

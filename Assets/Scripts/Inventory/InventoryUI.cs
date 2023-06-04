@@ -4,13 +4,17 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     InventoryManager inventory;
+    public static InventoryUI instance;
     public Image icon;
     Item item;
+    public bool isItemInUI = false;
     
     void Awake()
     {
         if(!item)
             icon.enabled = false;
+
+        instance = this;
     }
 
     void Start()
@@ -28,10 +32,17 @@ public class InventoryUI : MonoBehaviour
     public void UpdateUI()
     {
         for (int i = 0; i < inventory.items.Count; i++)
-            if (i < inventory.items.Count)
+            if (inventory.items.Count != 0)
+            {
+                Debug.Log("item is added");
                 AddItem(inventory.items[i]);
+                isItemInUI = true;
+            }
             else
+            {
+                Debug.Log("item is cleaned");
                 ClearItem();
+            }
     }
 
     public void AddItem(Item newItem)
@@ -48,14 +59,4 @@ public class InventoryUI : MonoBehaviour
         icon.enabled = false;
     }
 
- /*   public void AddItemPersist(Item newItem)
-    {
-        if (!GameManager.instance.isInventoryFull && GameManager.instance.inventoryIcon == null)
-        {
-            item = newItem;
-            icon.sprite = item.icon;
-            icon.enabled = true;
-        }
-
-    }*/
 }

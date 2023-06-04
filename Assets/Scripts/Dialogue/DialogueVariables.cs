@@ -17,7 +17,6 @@ public class DialogueVariables
         {
             Ink.Runtime.Object value = globalVariablesStory.variablesState.GetVariableWithName(name);
             variables.Add(name, value);
-            //Debug.Log("Intializing " + name + " = " + value);
         }
     }
 
@@ -35,21 +34,14 @@ public class DialogueVariables
 
    private void VariableChanged(string name, Ink.Runtime.Object value)
     {
-        //Debug.Log("Variable changed: " + name + " = " + value);
         ///only maintain variables initialized from the global ink file
         if (variables.ContainsKey(name))
-        {
             variables[name] = value; 
-            //variables.Remove(name);
-            //variables.Add(name, value);
-        }
     }
 
     private void VariablesToStory(Story story)
     {
         foreach(KeyValuePair<string, Ink.Runtime.Object> variable in variables)
-        {
             story.variablesState.SetGlobal(variable.Key, variable.Value);
-        }
     } 
 }

@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelChanger : MonoBehaviour
 {
     public string sceneToLoad; //to check which scene to load
+    GameManager gameManager;
+    private static GameObject destroyedItemInScene;
+
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+    }
 
     public void ChangeScene()
     {

@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        if(items.Count > space)
+        if(items.Count >= space)
         {
             Debug.Log("Inventory is FULL");
             return; 
@@ -43,6 +43,7 @@ public class InventoryManager : MonoBehaviour
         itemChanged?.Invoke();
         SaveState(item);
         Debug.Log(item.name + " added to inventory");
+        InventoryUI.instance.AddItem(item);
 
     }
 
@@ -60,8 +61,8 @@ public class InventoryManager : MonoBehaviour
     {
         if (isAdded)
             GameManager.AddInventoryItem(item);
-        else
-            GameManager.RemoveInventoryItem(item);
+        //else
+        //    GameManager.RemoveInventoryItem(item);
     }
 
     public void LoadState()
@@ -71,6 +72,5 @@ public class InventoryManager : MonoBehaviour
 
         foreach (Item heldItem in heldItems.ToArray())
             Add(heldItem);
-            ///Add(Resources.Load<Item>($"Inventory Items/{name}"));
     }
 }

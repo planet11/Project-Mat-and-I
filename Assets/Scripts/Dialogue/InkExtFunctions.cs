@@ -5,11 +5,11 @@ using Ink.Runtime;
 
 public class InkExtFunctions
 {
-    public void Bind(Story story, Animator anim)
+    public void Bind(Story story)
     {
         story.BindExternalFunction("SetScrewdriver", (bool setScrewdriver) => SetScrewdriver(setScrewdriver));
         story.BindExternalFunction("SetHammer", (bool setHammer) => SetHammer(setHammer));
-        story.BindExternalFunction("MatIsHit", (bool matIsHit) => MatIsHit(matIsHit,anim));
+        story.BindExternalFunction("MatIsHit", (bool matIsHit) => MatIsHit(matIsHit));
     }
 
     //public void Unbind(Story story)
@@ -27,13 +27,9 @@ public class InkExtFunctions
         Debug.Log(setHammer);
     }
 
-    public void MatIsHit(bool matIsHit, Animator anim)
+    public void MatIsHit(bool matIsHit)
     {
-        if (matIsHit && anim != null)
-        {
             Debug.Log("Mat is hit.");
-            anim.enabled = false;
-        }
     }
 
 }

@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
     public static List<Item> currentInventoryItems = new List<Item>();
-
+    public string destroyedItem; // to be changed to List<string>
+    
     private void Awake()
     {
         if (instance == null)
@@ -22,7 +23,6 @@ public class GameManager : MonoBehaviour
     public static void SetCurrentInventoryItems(List<Item> items)
     {
         // Convert the item list to a array of names
-        ///List<Item> items = new List<Item>();
         foreach (Item item in items)
         {
             Debug.Log(item.name + "is spawned from the saving");
@@ -51,13 +51,17 @@ public class GameManager : MonoBehaviour
             currentInventoryItems.Add(item);
             Debug.Log(item.name + "saved.");
         }
-
     }
 
     public static void RemoveInventoryItem(Item item)
     {
         if (currentInventoryItems.Contains(item))
             currentInventoryItems.Remove(item);
+    }
+
+    public void DestroyedItem(string itemPickUp)
+    {
+        destroyedItem = itemPickUp;
     }
 
 }
