@@ -21,7 +21,7 @@ public class KillMatUI : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && item.isHammer)
+        if (collision.gameObject.tag == "Player")// && item.isHammer)
         {
             killMatUI.SetActive(false);
         }
