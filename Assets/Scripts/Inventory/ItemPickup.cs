@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    //public static ItemPickup instance { get; private set; }
+    public static ItemPickup instance;
+
     InventoryManager inventory;
     GameManager gameManager;
+    
     public Item item;
     bool isCollectable = false;
+    public bool isHammer = false;
 
     [SerializeField] private AudioSource collectSound;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -43,6 +53,12 @@ public class ItemPickup : MonoBehaviour
             collectSound.Play();
 
             print(item);
+
+            if (item.name == "Hammer")
+            {
+                isHammer = true;
+                print("is hammer is " + isHammer);
+            }
 
             Debug.Log("UI Updated and collect sound played");
         }

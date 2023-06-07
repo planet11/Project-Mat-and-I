@@ -7,21 +7,21 @@ public class KillMatUI : MonoBehaviour
 {
     public GameObject killMatUI;
    // public Item item;
-    //public InventoryUI ui;
+    public ItemPickup item;
     private void Start()
     {
         killMatUI.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" )
+        if (collision.gameObject.tag == "Player")// && item.isHammer)
         {
             killMatUI.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && item.isHammer)
         {
             killMatUI.SetActive(false);
         }

@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     Item item;
     public bool isItemInUI = false;
     
+    
     void Awake()
     {
         if(!item)
@@ -38,6 +39,7 @@ public class InventoryUI : MonoBehaviour
                 Debug.Log("item is added");
                 AddItem(inventory.items[i]);
                 isItemInUI = true;
+                
             }
             else
             {
