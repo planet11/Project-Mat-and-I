@@ -13,6 +13,8 @@ You: But I don't know how to do.
 Mat: My master, you're the cleverest girl I have even seen. I believe you can fix the problem.
 Mat: Just don't forget to take the screwdriver. The circuit breaker is at the corridor.
 You: Okay. I'll go for it.
+* Sounds Suspicious, Hit him with the Hammer ->END
+* Mat seems helpful take Screwdriver -> DONE
 ~ firstTalk = false
 ~ SetScrewdriver(true)
 ->DONE

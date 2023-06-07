@@ -81,7 +81,6 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StopListening(currentStory);
 
-        //inkExtFunctions.Unbind(currentStory);
     }
 
     public void ContinueStory()
@@ -106,7 +105,6 @@ public class DialogueManager : MonoBehaviour
         List<Choice> currentChoices = currentStory.currentChoices;
 
         for (int index = 0; index < choices.Length; index++)
-        //foreach(Choice choice in currentChoices)
         {
             if (index < currentChoices.Count)
             {
@@ -119,18 +117,9 @@ public class DialogueManager : MonoBehaviour
                 choicesText[index].text = "";
             }
         }
-        //StartCoroutine(SelectedFirstChoice());
     }
 
-    //private IEnumerator SelectedFirstChoice()
-    //{
-        ///Event System requires we clean it first,
-        ///then wait for at least one frame before we set the current selected obj
-        //EventSystem.current.SetSelectedGameObject(null);
-        //yield return new WaitForEndOfFrame();
-        //EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
-    //}
-
+   
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);

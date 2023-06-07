@@ -34,6 +34,7 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < inventory.items.Count; i++)
             if (inventory.items.Count != 0)
             {
+                //print(item);
                 Debug.Log("item is added");
                 AddItem(inventory.items[i]);
                 isItemInUI = true;

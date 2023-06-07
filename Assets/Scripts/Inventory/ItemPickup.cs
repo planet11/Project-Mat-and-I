@@ -42,6 +42,8 @@ public class ItemPickup : MonoBehaviour
 
             collectSound.Play();
 
+            print(item);
+
             Debug.Log("UI Updated and collect sound played");
         }
     }
