@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     Transform target;
 
+    [SerializeField] private AudioSource walkSound;
 
     void Update()
     {
@@ -18,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
+            if(rb.velocity == Vector2.zero)
+            {
+                walkSound.Play();
+            }
         }
         else
         {

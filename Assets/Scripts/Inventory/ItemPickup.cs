@@ -9,6 +9,8 @@ public class ItemPickup : MonoBehaviour
     public Item item;
     bool isCollectable = false;
 
+    [SerializeField] private AudioSource collectSound;
+
     private void Start()
     {
         inventory = InventoryManager.instance;
@@ -37,7 +39,10 @@ public class ItemPickup : MonoBehaviour
             gameManager.DestroyedItem(gameObject.name);
             gameObject.SetActive(false);
             InventoryUI.instance.UpdateUI();
-            Debug.Log("UI Updated");
+
+            collectSound.Play();
+
+            Debug.Log("UI Updated and collect sound played");
         }
     }
 
