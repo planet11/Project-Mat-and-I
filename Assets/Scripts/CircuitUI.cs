@@ -15,7 +15,7 @@ public class CircuitUI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")// && gameObject.name=="Hammer")//&& item.name == "Hammer")
+        if (collision.gameObject.tag == "Player")// && gameObject.name=="Hammer")//&& item.name == "Screwdriver")
         {
             circuitUI.SetActive(true);
         }

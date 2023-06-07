@@ -1134,7 +1134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570975126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.69, y: 3.62, z: 0.25431937}
+  m_LocalPosition: {x: -3.69, y: -0.02, z: 0.25431937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2028,13 +2028,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1167801904}
+        m_TargetAssemblyTypeName: KillCircuitOnClick, Assembly-CSharp
+        m_MethodName: whenClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2091,6 +2091,7 @@ GameObject:
   - component: {fileID: 1167801900}
   - component: {fileID: 1167801899}
   - component: {fileID: 1167801903}
+  - component: {fileID: 1167801904}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2196,6 +2197,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circuitUI: {fileID: 613513008}
   ui: {fileID: 1444154370}
+--- !u!114 &1167801904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167801898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec11da72238af44439897803c4425ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circuit: {fileID: 570975126}
 --- !u!1 &1239769052
 GameObject:
   m_ObjectHideFlags: 0

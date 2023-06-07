@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class KillMatUI : MonoBehaviour
 {
     public GameObject killMatUI;
-   // public Item item;
-    public ItemPickup item;
+    // public Item item;
+    ItemPickup item;
+    //ItemPickup item = gameObject.GetComponent<ItemPickup>().isHammer;
+    //bool isHammer2 = gameObject.GetComponent<ItemPickup>.isHammer; 
     private void Start()
     {
         killMatUI.SetActive(false);
