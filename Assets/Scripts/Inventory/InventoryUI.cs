@@ -39,11 +39,10 @@ public class InventoryUI : MonoBehaviour
                 Debug.Log("item is added");
                 AddItem(inventory.items[i]);
                 isItemInUI = true;
-                
+
             }
             else
             {
-                Debug.Log("item is cleaned");
                 ClearItem();
             }
     }

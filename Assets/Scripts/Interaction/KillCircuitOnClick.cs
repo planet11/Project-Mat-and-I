@@ -5,12 +5,14 @@ using UnityEngine;
 public class KillCircuitOnClick : MonoBehaviour
 {
     public GameObject circuit;
+    //public bool isUsed = false;
 
     public void WhenClicked()
     {
         if (circuit.activeInHierarchy == true)
         {
             circuit.SetActive(false);
+            InventoryUI.instance.ClearItem();
         }
         else
         {

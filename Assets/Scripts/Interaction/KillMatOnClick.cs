@@ -11,6 +11,7 @@ public class KillMatOnClick : MonoBehaviour
         if (mat.activeInHierarchy == true)
         {
             mat.SetActive(false);
+            InventoryUI.instance.ClearItem();
         }
         else
         {

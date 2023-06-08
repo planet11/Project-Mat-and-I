@@ -78,8 +78,6 @@ public class InventoryManager : MonoBehaviour
     {
         if (isAdded)
             GameManager.AddInventoryItem(item);
-        //else
-        //    GameManager.RemoveInventoryItem(item);
     }
 
     public void LoadState()
