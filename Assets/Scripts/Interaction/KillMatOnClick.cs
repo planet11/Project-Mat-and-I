@@ -6,7 +6,7 @@ public class KillMatOnClick : MonoBehaviour
 {
     public GameObject mat;
 
-    public void whenClicked()
+    public void WhenClicked()
     {
         if (mat.activeInHierarchy == true)
         {

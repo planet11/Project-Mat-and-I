@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class InventoryManager : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged itemChanged;
 
+    public bool hasHammer = false;
+    public bool hasScrew = false;
+
     private void Start()
     {
         LoadState();
@@ -40,7 +44,17 @@ public class InventoryManager : MonoBehaviour
         }
 
         items.Add(item);
+        if (item.name == "Hammer")
+        {
+            hasHammer = true;
+        }
+        if (item.name == "Screwdriver")
+        {
+            hasScrew = true;
+        }
+
         itemChanged?.Invoke();
+        
         SaveState(item);
         Debug.Log(item.name + " added to inventory");
         InventoryUI.instance.AddItem(item);
@@ -49,12 +63,15 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item)
     {
-        items.Remove(item);
-        if (itemChanged != null)
+        items.Remove(item);        
+        
+        if (item.name == "Hammer")
         {
-            itemChanged.Invoke();
-            SaveState(item, false);
+            hasHammer = false;
         }
+
+        itemChanged?.Invoke();
+        SaveState(item, false);
     }
 
     void SaveState(Item item, bool isAdded = true)

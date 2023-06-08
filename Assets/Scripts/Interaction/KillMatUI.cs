@@ -6,24 +6,23 @@ using UnityEngine.UI;
 public class KillMatUI : MonoBehaviour
 {
     public GameObject killMatUI;
-    // public Item item;
-    ItemPickup item;
-    //ItemPickup item = gameObject.GetComponent<ItemPickup>().isHammer;
-    //bool isHammer2 = gameObject.GetComponent<ItemPickup>.isHammer; 
+    //public ItemPickup item;
+ 
+  
     private void Start()
     {
         killMatUI.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")// && item.isHammer)
+        if (collision.gameObject.CompareTag("Player") && InventoryManager.instance.hasHammer)
         {
             killMatUI.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")// && item.isHammer)
+        if (collision.gameObject.CompareTag("Player"))
         {
             killMatUI.SetActive(false);
         }

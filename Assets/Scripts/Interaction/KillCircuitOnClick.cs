@@ -6,7 +6,7 @@ public class KillCircuitOnClick : MonoBehaviour
 {
     public GameObject circuit;
 
-    public void whenClicked()
+    public void WhenClicked()
     {
         if (circuit.activeInHierarchy == true)
         {
