@@ -61,7 +61,7 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    public void Remove(Item item)
+    public void RemoveItem(Item item)
     {
         items.Remove(item);        
         

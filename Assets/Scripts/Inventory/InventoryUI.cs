@@ -59,6 +59,7 @@ public class InventoryUI : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
+        InventoryManager.instance.RemoveItem(inventory.items[0]); //why is this not working???!!!!
     }
 
 }
