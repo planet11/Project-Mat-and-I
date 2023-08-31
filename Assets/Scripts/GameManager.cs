@@ -1,5 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
     public static List<Item> currentInventoryItems = new List<Item>();
-    public string destroyedItem; // to be changed to List<string>
+    public static List<string> destroyedItems = new List<string>();
     
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         if (!currentInventoryItems.Contains(item)) 
         {
             currentInventoryItems.Add(item);
+            destroyedItems.Add(item.name);
             Debug.Log(item.name + "saved.");
         }
     }
@@ -59,9 +61,9 @@ public class GameManager : MonoBehaviour
             currentInventoryItems.Remove(item);
     }
 
-    public void DestroyedItem(string itemPickUp)
+    public bool IsItemDestroyed(string itemPickup)
     {
-        destroyedItem = itemPickUp;
+        return destroyedItems.Contains(itemPickup);
     }
 
 }

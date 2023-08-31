@@ -30,7 +30,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
             playerInRange = false;
-
     }
 
     private void Update()
@@ -46,8 +45,11 @@ public class DialogueTrigger : MonoBehaviour
                 hit = Physics2D.Raycast(mousePos, Vector2.down);
                 if (hit.collider.CompareTag("Interactable"))
                 {
-                    TextAsset currentDialogue = hit.collider.GetComponent<DialogueTrigger>().inkJSON;
-                    DialogueManager.GetInstance().EnterDialogueMode(currentDialogue);
+                    if(hit.collider.name == this.name)
+                    {
+                        TextAsset currentDialogue = hit.collider.GetComponent<DialogueTrigger>().inkJSON;
+                        DialogueManager.GetInstance().EnterDialogueMode(currentDialogue);
+                    }
                 }
             }
         }

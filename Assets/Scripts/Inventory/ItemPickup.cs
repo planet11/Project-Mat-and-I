@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
@@ -11,9 +12,7 @@ public class ItemPickup : MonoBehaviour
     GameManager gameManager;
     
     public Item item;
-    bool isCollectable = false;
-    public bool isHammer = false;
-
+    public bool isCollectable = false;
     [SerializeField] private AudioSource collectSound;
 
     void Awake()
@@ -25,7 +24,7 @@ public class ItemPickup : MonoBehaviour
     {
         inventory = InventoryManager.instance;
         gameManager = GameManager.instance;
-        if (gameObject.name == gameManager.destroyedItem)
+        if(gameManager.IsItemDestroyed(gameObject.name))
             gameObject.SetActive(false);
     }
 
@@ -45,22 +44,11 @@ public class ItemPickup : MonoBehaviour
     {
         if (isCollectable && inventory.items.Count < inventory.space)
         {
+            collectSound.Play();
             inventory.Add(item);
-            gameManager.DestroyedItem(gameObject.name);
             gameObject.SetActive(false);
             InventoryUI.instance.UpdateUI();
-
-            collectSound.Play();
-
-            print(item);
-
-            if (item.name == "Hammer")
-            {
-                isHammer = true;
-                print("is hammer is " + isHammer);
-            }
-
-            Debug.Log("UI Updated and collect sound played");
+            Debug.Log(item);
         }
     }
 

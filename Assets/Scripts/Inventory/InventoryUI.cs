@@ -7,14 +7,11 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance;
     public Image icon;
     Item item;
-    public bool isItemInUI = false;
-    
     
     void Awake()
     {
         if(!item)
             icon.enabled = false;
-
         instance = this;
     }
 
@@ -35,16 +32,11 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < inventory.items.Count; i++)
             if (inventory.items.Count != 0)
             {
-                //print(item);
                 Debug.Log("item is added");
                 AddItem(inventory.items[i]);
-                isItemInUI = true;
-
             }
             else
-            {
                 ClearItem();
-            }
     }
 
     public void AddItem(Item newItem)
@@ -59,7 +51,7 @@ public class InventoryUI : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
-        InventoryManager.instance.RemoveItem(inventory.items[0]); //why is this not working???!!!!
+        InventoryManager.instance.RemoveItem(inventory.items[0]);
     }
 
 }

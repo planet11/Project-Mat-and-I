@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using TMPro;
 using Ink.Runtime;
 
@@ -29,9 +27,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-        {
             Debug.Log("Found more than one Dialogue Manager in the scene");
-        }
         instance = this;
 
         dialogueVariables = new DialogueVariables(loadGlobalJSON);
@@ -55,9 +51,7 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (!dialogueIsPlaying)
-        {
             return;
-        }
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
@@ -80,7 +74,6 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
 
         dialogueVariables.StopListening(currentStory);
-
     }
 
     public void ContinueStory()
@@ -91,13 +84,9 @@ public class DialogueManager : MonoBehaviour
             DisplayChoices();
         }
         else if (!currentStory.canContinue)
-        {
             ExitDialogueMode();
-        }
         else
-        {
             return;
-        }
     }
 
     private void DisplayChoices()

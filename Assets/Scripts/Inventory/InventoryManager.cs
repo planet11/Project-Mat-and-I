@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
     public OnItemChanged itemChanged;
 
     public bool hasHammer = false;
-    public bool hasScrew = false;
+    public bool hasScrewdriver = false;
 
     private void Start()
     {
@@ -44,15 +44,6 @@ public class InventoryManager : MonoBehaviour
         }
 
         items.Add(item);
-        if (item.name == "Hammer")
-        {
-            hasHammer = true;
-        }
-        if (item.name == "Screwdriver")
-        {
-            hasScrew = true;
-        }
-
         itemChanged?.Invoke();
         
         SaveState(item);
@@ -64,12 +55,6 @@ public class InventoryManager : MonoBehaviour
     public void RemoveItem(Item item)
     {
         items.Remove(item);        
-        
-        if (item.name == "Hammer")
-        {
-            hasHammer = false;
-        }
-
         itemChanged?.Invoke();
         SaveState(item, false);
     }
