@@ -19,7 +19,7 @@ Mat: My master, you're the cleverest girl I have even seen. I believe you can fi
 Mat: Just don't forget to take the SCREWDRIVER. The circuit breaker is at the corridor.
 You: Okay. I'll go for it.
 ~matTalk=0
-~setScrewdriver=true
+~setItem("Screwdriver")
 ->DONE
 
 
@@ -41,12 +41,12 @@ You: Don’t play me a fool. I know what you are doing to me, smuggler.
 Mat: My master, You shouldn't read the document in the computer - it's commercial secret. 
 Mat: Now you’ve violated the rule of the trip. I've to lock you down until we arrive the planet.
 *[Hit Mat with the hammer]
- ~ matIsHit=true
+~hasHammer(false)
  Mat: My mas^%&$t(*)er, the passen&*^*&ger in theeeeee spaceship&*%$ shall not use vi&*_(*olence. I have to loc*&^&$k you...
  Mat is broken down. You stop the spaceship and play a S.O.S message to any passing spaceships.
  There is a cargo spaceship not so far which has received your message. You're now on the way home.
  Yet, not every victims are that lucky.
-~isEnd=true
+~gameState(true)
 ->END
 
 
@@ -55,5 +55,5 @@ Now you are getting back into the status of stasis, peacefully.
 After countless days you wake up. You've found that you are not in AST-28, a fictional planet, but a cage. 
 The guardian holding a whip shouts at you, "Go working now! Do you want me to beat you? No meal if you haven't sent the messages to at least 100 people today."
 You are just one of the thousands victims in the crimes of international human trafficking.
-~isEnd=true
+~gameState(true)
 ->END

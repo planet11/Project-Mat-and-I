@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
 
@@ -7,29 +5,50 @@ public class InkExtFunctions
 {
     public void Bind(Story story)
     {
-        story.BindExternalFunction("SetScrewdriver", (bool setScrewdriver) => SetScrewdriver(setScrewdriver));
-        story.BindExternalFunction("SetHammer", (bool setHammer) => SetHammer(setHammer));
-        story.BindExternalFunction("MatIsHit", (bool matIsHit) => MatIsHit(matIsHit));
+        if(story != null)
+        {
+            story.BindExternalFunction("setItem", (string item) => SetItem(item));
+            story.BindExternalFunction("hasHammer", (bool hasHammer) => HasHammer(hasHammer));
+            story.BindExternalFunction("hasScrewdriver", (bool hasScrewdriver) => HasScrewdriver(hasScrewdriver));
+            story.BindExternalFunction("gameState", (bool isEnded) => ChangeGameState(isEnded));
+            story.BindExternalFunction("matState", (bool isHit) => ChangeMatState(isHit));
+        }
+        else
+            Debug.Log("Story is null.");
     }
 
-    //public void Unbind(Story story)
-    //{
-    //    story.UnbindExternalFunction("CircuitIsFixed");
-    //}
-
-    public void SetScrewdriver(bool setScrewdriver)
+    public void Unbind(Story story)
     {
-        Debug.Log(setScrewdriver);
+        story.UnbindExternalFunction("setItem");
+        story.UnbindExternalFunction("hasHammer");
+        story.UnbindExternalFunction("hasScrewdriver");
+        story.UnbindExternalFunction("gameState");
+        story.UnbindExternalFunction("matState");
     }
 
-    public void SetHammer(bool setHammer)
+    public void SetItem(string item)
     {
-        Debug.Log(setHammer);
+        Debug.Log(item + "is set.");
     }
 
-    public void MatIsHit(bool matIsHit)
+    public void HasHammer(bool hasHammer)
     {
-            Debug.Log("Mat is hit.");
+        Debug.Log(hasHammer);
+    }
+
+    public void HasScrewdriver(bool hasScrewdriver)
+    {
+        Debug.Log(hasScrewdriver);
+    }
+
+    public void ChangeGameState(bool isEnded)
+    {
+        Debug.Log(isEnded);
+    }
+
+    public void ChangeMatState(bool isHit)
+    {
+        Debug.Log(isHit);
     }
 
 }

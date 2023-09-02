@@ -27,8 +27,9 @@ public class InventoryManager : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged itemChanged;
 
-    public bool hasHammer = false;
-    public bool hasScrewdriver = false;
+    private InkExtFunctions inkExtFunctions = new InkExtFunctions();
+    private string setItemName;
+    public bool isItemInactive = false;
 
     private void Start()
     {
@@ -42,19 +43,23 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("Inventory is FULL");
             return; 
         }
-
-        items.Add(item);
-        itemChanged?.Invoke();
-        
-        SaveState(item);
-        Debug.Log(item.name + " added to inventory");
-        InventoryUI.instance.AddItem(item);
-
+        inkExtFunctions.SetItem(setItemName);
+        if (item.name == setItemName)
+        {
+            isItemInactive = true;
+            items.Add(item);
+            itemChanged?.Invoke();
+            SaveState(item);
+            InventoryUI.instance.AddItem(item);       
+            Debug.Log(item.name + " added to inventory");
+        }
+        else
+            return;     
     }
 
     public void RemoveItem(Item item)
     {
-        items.Remove(item);        
+        items.Remove(item);
         itemChanged?.Invoke();
         SaveState(item, false);
     }

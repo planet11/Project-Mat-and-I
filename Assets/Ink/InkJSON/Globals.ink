@@ -1,8 +1,14 @@
+EXTERNAL setItem(item)
+EXTERNAL hasScrewdriver(hasScrewdriver)
+EXTERNAL hasHammer(hasHammer)
+EXTERNAL gameState(isEnded)
+EXTERNAL matState(isHit)
+~gameState(false)
+~matState(false)
+~setItem("")
+~hasScrewdriver(false)
+~hasHammer(false)
+
 VAR powerIsFixed = false
-VAR setScrewdriver = true
-VAR hasScrewdriver = false
-VAR hasHammer = false
 VAR isSuspected = false
-VAR matIsHit = false
 VAR matTalk = 1
-VAR isEnd = true

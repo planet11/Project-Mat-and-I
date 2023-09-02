@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    private DialogueManager dialogueManager;
     private bool playerInRange;
     Camera cam;
     public LayerMask mask;
@@ -11,6 +12,9 @@ public class DialogueTrigger : MonoBehaviour
 
     public void Awake()
     {
+        if (dialogueManager != null)
+            Debug.Log("Found more than one Dialogue Manager in the scene");
+        dialogueManager = new DialogueManager();
         playerInRange = false;
     }
 
@@ -45,7 +49,7 @@ public class DialogueTrigger : MonoBehaviour
                 hit = Physics2D.Raycast(mousePos, Vector2.down);
                 if (hit.collider.CompareTag("Interactable"))
                 {
-                    if(hit.collider.name == this.name)
+                    if(hit.collider.name == gameObject.name)
                     {
                         TextAsset currentDialogue = hit.collider.GetComponent<DialogueTrigger>().inkJSON;
                         DialogueManager.GetInstance().EnterDialogueMode(currentDialogue);

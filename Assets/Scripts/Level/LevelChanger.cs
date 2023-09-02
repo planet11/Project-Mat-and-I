@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
     public string sceneToLoad; //to check which scene to load
     GameManager gameManager;
-    private static GameObject destroyedItemInScene;
 
     private void Start()
     {
         gameManager = GameManager.instance;
     }
 
-    public void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void EndGame()
@@ -28,7 +26,7 @@ public class LevelChanger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            ChangeScene();
+            ChangeScene(sceneToLoad);
         }
     }
 }

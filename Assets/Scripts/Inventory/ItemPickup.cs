@@ -44,11 +44,12 @@ public class ItemPickup : MonoBehaviour
     {
         if (isCollectable && inventory.items.Count < inventory.space)
         {
-            collectSound.Play();
             inventory.Add(item);
-            gameObject.SetActive(false);
-            InventoryUI.instance.UpdateUI();
-            Debug.Log(item);
+            if (inventory.isItemInactive)
+            {
+                collectSound.Play();
+                gameObject.SetActive(false);
+            }
         }
     }
 

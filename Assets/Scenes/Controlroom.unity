@@ -158,6 +158,8 @@ MonoBehaviour:
   - {fileID: 753571658}
   - {fileID: 487291407}
   loadGlobalJSON: {fileID: 4900000, guid: 3433b14619e146144beae12690fde91f, type: 3}
+  matAnim: {fileID: 5910695985992856781}
+  matRB: {fileID: 5910695985992856780}
 --- !u!4 &6964853
 Transform:
   m_ObjectHideFlags: 0
@@ -1392,6 +1394,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b486014f5eb0345932f20698e1f2b6, type: 3}
+--- !u!50 &5910695985992856780 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5910695984917681572, guid: 50b486014f5eb0345932f20698e1f2b6, type: 3}
+  m_PrefabInstance: {fileID: 5910695985992856779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5910695985992856781 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5910695984917681570, guid: 50b486014f5eb0345932f20698e1f2b6, type: 3}
+  m_PrefabInstance: {fileID: 5910695985992856779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6005958854715768741
 PrefabInstance:
   m_ObjectHideFlags: 0

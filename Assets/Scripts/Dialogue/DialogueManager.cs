@@ -19,10 +19,18 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance;
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    public Animator matAnim;
+    public Rigidbody2D matRB;
 
     private DialogueVariables dialogueVariables;
-    private InkExtFunctions inkExtFunctions;
 
+    private InkExtFunctions inkExtFunctions;
+    private InventoryManager inventoryManager;
+    private LevelChanger levelChanger;
+    private bool isHammerUsed;
+    private bool isScrewdriverUsed;
+    private bool isGameEnd;
+    private bool isMatHit; 
 
     private void Awake()
     {
@@ -32,7 +40,9 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables = new DialogueVariables(loadGlobalJSON);
         inkExtFunctions = new InkExtFunctions();
+        inventoryManager = new InventoryManager();
     }
+
     public static DialogueManager GetInstance()
     {
         return instance;
@@ -46,6 +56,9 @@ public class DialogueManager : MonoBehaviour
         choicesText = new TextMeshProUGUI[choices.Length];
         for (int index = 0; index < choices.Length; index++)
             choicesText[index] = choices[index].GetComponentInChildren<TextMeshProUGUI>();
+
+        matAnim = GetComponent<Animator>();
+        matRB = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -56,14 +69,16 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        inkExtFunctions.Bind(currentStory);
+
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
-
-        inkExtFunctions.Bind(currentStory);
-
+        UseItem();
+        GameEnd();
+        HitMat();
         ContinueStory();
     }
 
@@ -74,6 +89,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
 
         dialogueVariables.StopListening(currentStory);
+
+        inkExtFunctions.Unbind(currentStory);
     }
 
     public void ContinueStory()
@@ -108,12 +125,48 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-   
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
         dialogueText.text = currentStory.Continue();
         DisplayChoices();
+    }
+
+    public void UseItem()
+    {
+        inkExtFunctions.HasHammer(isHammerUsed);
+        inkExtFunctions.HasScrewdriver(isScrewdriverUsed);
+
+        if (!isHammerUsed | !isScrewdriverUsed)
+        {
+            List<Item> currentItems = new List<Item>();
+            currentItems = inventoryManager.items;
+            foreach (Item currentItem in currentItems)
+                inventoryManager.RemoveItem(currentItem);
+        }
+    }
+
+    public void GameEnd()
+    {
+        inkExtFunctions.ChangeGameState(isGameEnd);
+        if (isGameEnd)
+            levelChanger.ChangeScene("End");
+    }
+
+    public void HitMat()
+    {
+        inkExtFunctions.ChangeMatState(isMatHit);
+        if (isMatHit)
+        {
+            matAnim.enabled = false;
+            matRB.Sleep();
+        }
+    }
+
+    public void OnApplicationQuit()
+    {
+        if(dialogueVariables != null)
+            dialogueVariables.SaveVariables();
     }
 
 }

@@ -6,10 +6,19 @@ public class DialogueVariables
 {
     private Dictionary<string, Ink.Runtime.Object> variables;
 
+    private Story globalVariablesStory;
+    private const string saveVariablesKey = "INK_VARIABLES";
+
     public DialogueVariables(TextAsset loadGlobalJSON)
     {
         ///create the story
-        Story globalVariablesStory = new Story(loadGlobalJSON.text);
+        globalVariablesStory = new Story(loadGlobalJSON.text);
+        if(PlayerPrefs.HasKey(saveVariablesKey))
+        {
+            string jsonState = PlayerPrefs.GetString(saveVariablesKey);
+            globalVariablesStory.state.LoadJson(jsonState);
+            Debug.Log("JSON is created.");
+        }
 
         ///initialize the dictionary of variables
         variables = new Dictionary<string, Ink.Runtime.Object>();
@@ -17,6 +26,15 @@ public class DialogueVariables
         {
             Ink.Runtime.Object value = globalVariablesStory.variablesState.GetVariableWithName(name);
             variables.Add(name, value);
+        }
+    }
+
+    public void SaveVariables()
+    {
+        if(globalVariablesStory != null)
+        {
+            VariablesToStory(globalVariablesStory);
+            PlayerPrefs.SetString(saveVariablesKey,globalVariablesStory.state.ToJson());
         }
     }
 
